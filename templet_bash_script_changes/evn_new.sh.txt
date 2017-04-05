@@ -2,7 +2,7 @@
 # Bash Menu Script Example
 
 PS3='Please select your GRID NAME: '
-value="$(cat /root/file.json)"	
+value="$(cat ./file.json)"	# this file data will read from curl request
 options="$(echo ${value} | jq '.[] | .GRID_NAME')"
 
 oldIFS=$IFS

@@ -1,7 +1,7 @@
 [
   {
     "GRID_NAME": "dev-testing",
-    "MASTER_IP": "101.60.40.101",
+    "MASTER_IP": "dev",
     "GRID_TOKEN": "21"
   },
   {

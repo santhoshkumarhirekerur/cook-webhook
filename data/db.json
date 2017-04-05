@@ -1,0 +1,17 @@
+[
+  {
+    "GRID_NAME": "dev-testing",
+    "MASTER_IP": "dev",
+    "GRID_TOKEN": "21"
+  },
+  {
+    "GRID_NAME": "prod-testing",
+    "MASTER_IP": "dev",
+    "GRID_TOKEN": "21"
+  },
+  {
+    "GRID_NAME": "prepod-testing",
+    "MASTER_IP": "dev",
+    "GRID_TOKEN": "21"
+  }
+]

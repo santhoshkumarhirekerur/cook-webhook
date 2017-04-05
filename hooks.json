@@ -1,0 +1,27 @@
+[
+  {
+    "id": "gridInfo",
+    "execute-command": "/etc/webhook/scripts/test.sh",
+    "command-working-directory": "/etc/webhook",
+    "include-command-output-in-response": true,
+    "pass-environment-to-command":
+        [
+          {
+            "source": "url",
+            "name": "gridName"
+          },
+          {
+            "source": "url",
+            "name": "token"
+          }
+        ]
+  },
+  {
+    "id": "gridAllInfo",
+    "execute-command": "/etc/webhook/scripts/gridFull.sh",
+    "command-working-directory": "/etc/webhook",
+    "include-command-output-in-response": true
+  }
+
+
+]

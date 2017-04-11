@@ -6,7 +6,7 @@
 # Following HOST Naming standards last 2 characters of server name are environmental assignment
 # D = dev
 # P = production
-node_env_tmp=$(echo $HOSTZ | cut -d'-' -f3 | head -c 1)
+node_env_tmp=$(echo hostname | cut -d'-' -f3 | head -c 1)
 case "$node_env_tmp" in
   D)
   node_env="dev"
@@ -17,7 +17,7 @@ case "$node_env_tmp" in
 esac
 
 # GridName for Request
-node_appname=$(echo $HOSTZ | cut -d'-' -f2)
+node_appname=$(echo hostname | cut -d'-' -f2)
 node_gridname="${node_appname,,}-$node_env"
 
 value="$(curl http://localhost:8000/hooks/gridInfo)"

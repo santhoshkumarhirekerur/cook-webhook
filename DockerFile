@@ -1,4 +1,4 @@
-FROM ianscrivener/alpine-s6-base
+FROM smebberson/alpine-base
 MAINTAINER Santhosh Hirekerur <santhosh.hirekerur@tayloredtechnology.net>
 ENV GOPATH /go
 ENV SRCPATH ${GOPATH}/src/github.com/adnanh

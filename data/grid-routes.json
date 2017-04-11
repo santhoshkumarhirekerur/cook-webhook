@@ -1,0 +1,24 @@
+[
+  {
+    "masterName": "cook-test",
+    "masterDNS": "10.61.40.100",
+    "grids": [
+      {
+        "name": "cbr-dev",
+        "token": "cbr_dev_token",
+        "loadbalancers": [
+          "10.61.40.101",
+          "10.61.40.102"
+        ]
+      },
+      {
+        "name": "cbr-prod",
+        "token": "cbr_prod_token",
+        "loadbalancers": [
+          "10.61.40.101",
+          "10.61.40.102"
+        ]
+      }
+    ]
+  }
+]

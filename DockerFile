@@ -3,6 +3,7 @@ MAINTAINER Santhosh Hirekerur <santhosh.hirekerur@tayloredtechnology.net>
 ENV GOPATH /go
 ENV SRCPATH ${GOPATH}/src/github.com/adnanh
 ENV WEBHOOK_VERSION 2.6.3
+env PATH /usr/local/bin:$PATH
 
 RUN         apk add --update -t build-deps curl go git libc-dev gcc libgcc && \
             git config --global http.https://gopkg.in.followRedirects true && \
@@ -15,7 +16,7 @@ RUN         apk add --update -t build-deps curl go git libc-dev gcc libgcc && \
             rm -rf ${GOPATH}
 
 
-ENTRYPOINT  ["/usr/local/bin/webhook"]
+#ENTRYPOINT  ["/usr/local/bin/webhook"]
 
 # 0@Cache -- Perma-Cached
 # Applications that don't automatically link to the docker logs standard output go here
@@ -46,5 +47,17 @@ ADD /scripts /etc/webhook/scripts/
 ADD /data /etc/webhook/data/
 RUN chmod a+x /etc/webhook/scripts/*.sh
 
-CMD ["-verbose", "-hooks=/etc/webhook/hooks.json", "-hotreload"]
+#adding run script
+
+RUN mkdir -p /etc/services.d/webhook
+
+RUN printf  '#!/usr/bin/with-contenv sh \n\
+exec /usr/local/bin/webhook -verbose -hooks=/etc/webhook/hooks.json -hotreload \n'\
+>> /etc/services.d/webhook/run
+
+RUN chmod a+x /etc/services.d/webhook/*
+
+
+ENTRYPOINT ["/init"]
+#CMD ["-verbose", "-hooks=/etc/webhook/hooks.json", "-hotreload"]
 #RUN chmod a+x /etc/webhook/data/*.json

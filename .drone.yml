@@ -1,6 +1,15 @@
 pipeline:
-    compose:
-      file: docker-compose.yml
+    integration-test:
+    image: jnummelin/build-tools
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - docker-compose up -d --build
+      - echo "**** Begin integration tests ****"
+      - echo "**** End integration tests ****"
+      - docker-compose stop > /dev/null 2>&1
+      - docker-compose rm -f -v > /dev/null 2>&1
+
     docker:
       image: plugins/docker:latest
       environment:

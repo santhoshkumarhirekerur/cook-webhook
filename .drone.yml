@@ -1,15 +1,4 @@
 pipeline:
-    integration-test:
-      image: jnummelin/build-tools
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-      commands:
-        - docker-compose up -d --build
-        - echo "**** Begin integration tests ****"
-        - echo "**** End integration tests ****"
-        - docker-compose stop > /dev/null 2>&1
-        - docker-compose rm -f -v > /dev/null 2>&1
-
     docker:
       image: plugins/docker:latest
       environment:
@@ -18,4 +7,6 @@ pipeline:
       tag: ${DRONE_TAG}
       file: Dockerfile
       when:
-        event: master
+        event: push # only run on merge into master
+        branch: [master]
+        status: [changed]

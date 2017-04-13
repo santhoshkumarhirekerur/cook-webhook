@@ -1,4 +1,6 @@
 pipeline:
+    compose:
+      docker-compose.yml
     docker:
       image: plugins/docker:latest
       environment:

@@ -1,0 +1,10 @@
+pipeline:
+    docker:
+      image: plugins/docker:latest
+      environment:
+        - DOCKER_LAUNCH_DEBUG=true
+      repo: santosh.hirekerur/cook-webhook
+      tag: ${DRONE_TAG}
+      file: Dockerfile
+      when:
+        event: master

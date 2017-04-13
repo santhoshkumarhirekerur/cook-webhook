@@ -4,7 +4,7 @@ pipeline:
       environment:
         - DOCKER_LAUNCH_DEBUG=true
       repo: santosh.hirekerur/cook-webhook
-      tag: ${DRONE_TAG}
+      tag: santosh.hirekerur/cook-webhook
       file: Dockerfile
       when:
         event: push # only run on merge into master

@@ -1,12 +1,17 @@
 pipeline:
-    docker:
-      image: plugins/docker
-      environment:
-        - DOCKER_LAUNCH_DEBUG=true
-      repo: santosh.kumar/cook-webhook
-      tags: latest
-      dockerfile: Dockerfile
-      commands:
-        go build
-      compose:
-        from-file: docker-compose.yml
+  build:
+    image: golang
+    commands:
+      - go get
+      - go build
+  docker:
+    image: plugins/docker
+    environment:
+      - DOCKER_LAUNCH_DEBUG=true
+    repo: santosh.kumar/cook-webhook
+    tags: latest
+    dockerfile: Dockerfile
+    commands:
+      go build
+    compose:
+      from-file: docker-compose.yml

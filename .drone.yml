@@ -6,5 +6,7 @@ pipeline:
       repo: santosh.kumar/cook-webhook
       tags: latest
       dockerfile: Dockerfile
+      commands:
+        go build
       compose:
         from-file: docker-compose.yml

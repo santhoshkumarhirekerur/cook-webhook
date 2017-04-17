@@ -1,12 +1,10 @@
 pipeline:
     docker:
-      image: plugins/docker:latest
+      image: plugins/docker
       environment:
         - DOCKER_LAUNCH_DEBUG=true
-      repo: santosh.hirekerur/cook-webhook
-      tag: santosh.hirekerur/cook-webhook
-      file: Dockerfile
-      when:
-        event: push # only run on merge into master
-        branch: [master]
-        status: [changed]
+      repo: santosh.kumar/cook-webhook
+      tags: latest
+      dockerfile: Dockerfile
+      compose:
+        from-file: docker-compose.yml

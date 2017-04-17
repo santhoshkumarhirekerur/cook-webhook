@@ -8,3 +8,5 @@ pipeline:
       dockerfile: Dockerfile
       compose:
         from-file: docker-compose.yml
+      when:
+        event: tag

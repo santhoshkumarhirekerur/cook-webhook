@@ -3,8 +3,8 @@ pipeline:
     image: plugins/docker
     environment:
       - DOCKER_LAUNCH_DEBUG=true
-    repo: http://192.168.99.100:3000/santosh.kumar/cook-webhook
+    repo: santosh.kumar/cook-webhook
     tags: latest
-    dockerfile: Dockerfile
+    dockerfile: ./cook-webhook/Dockerfile
     compose:
       from-file: docker-compose.yml

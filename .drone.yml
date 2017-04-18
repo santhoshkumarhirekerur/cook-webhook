@@ -6,6 +6,6 @@ pipeline:
     repo: http://192.168.99.100:3000/santosh.kumar/cook-webhook
     registry: http://192.168.99.100:3000
     tags: latest
-    dockerfile: Dockerfile
+    dockerfile: DockerFile
     compose:
       from-file: docker-compose.yml

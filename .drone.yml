@@ -5,6 +5,6 @@ pipeline:
       - DOCKER_LAUNCH_DEBUG=true
     repo: santosh.kumar/cook-webhook
     tags: latest
-    dockerfile: ./cook-webhook/Dockerfile
+    dockerfile: Dockerfile
     compose:
       from-file: docker-compose.yml
